@@ -1,0 +1,16 @@
+<table id="customers">
+    <tr>
+      <th id="name" appSortParams (param)="setSortParams($event)">Имя</th>
+      <th id="age" appSortParams (param)="setSortParams($event)">Возраст</th>
+      <th id="gender" appSortParams (param)="setSortParams($event)">Пол</th>
+      <th id="departament" appSortParams (param)="setSortParams($event)">Департамент</th>
+      <th id="addres" appSortParams (param)="setSortParams($event)">Адрес</th>
+    </tr>
+    <tr *ngFor="let user of filtredUsers|sort:direction:column:type">
+        <td>{{ user.name }}</td>
+        <td>{{ user.age }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.department }}</td>
+        <td>{{ user.address.city + ', ' + user.address.street }}</td>
+    </tr>
+</table>

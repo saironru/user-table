@@ -1,0 +1,29 @@
+<h2>Фильтры:</h2>
+
+<div (change)="onChange()" >
+
+<h3>Пол:</h3>
+<div class="checkboxgroup">
+<div *ngFor="let gender of getKeys(genders)">
+    <input type="checkbox"  [value]="gender" [id]="gender" [name]="gender" [(ngModel)]="g[gender]" checked>
+    <label [for]="gender">{{ gender + ' (' + genders[gender] + ')' }}</label>
+</div>
+</div>
+
+<h3>Департамент:</h3>
+<div class="checkboxgroup">
+<div *ngFor="let departament of getKeys(departaments)" class="checkbox">
+    <input type="checkbox"  [value]="departament" [id]="departament" [name]="departament" [(ngModel)]="d[departament]" checked>
+    <label [for]="departament">{{ departament + ' (' + departaments[departament] + ')'}}</label>
+</div>
+</div>
+
+<h3>Город:</h3>
+<div class="checkboxgroup">
+<div *ngFor="let city of getKeys(cities)" class="checkbox">
+    <input type="checkbox"  [value]="city" [id]="city" [name]="city" [(ngModel)]="c[city]" checked>
+    <label [for]="city">{{ city + ' (' + cities[city] + ')' }}</label>
+</div>
+</div>
+
+</div>
