@@ -12,16 +12,25 @@ return sortedItems;
 }
 sortAscending(items: Array<any>, column: string, type: string){
   let comparator = function(a:any, b:any): number{
+    let aS;
+    let bS;
+    if (column === 'address') {
+      aS = a['address']['city'] + a['address']['street']
+      bS = b['address']['city'] + b['address']['street']
+    } else {
+      aS = a[column]
+      bS = b[column]
+    }
     if (type === 'string') {
-      if (a[column].toUpperCase() < b[column].toUpperCase()) {
+      if (aS.toUpperCase() < bS.toUpperCase()) {
         return -1;
-      } else if (a[column].toUpperCase() > b[column].toUpperCase()) {
+      } else if (aS.toUpperCase() > bS.toUpperCase()) {
         return 1;
       } else {
         return 0;
       }
     } else {
-    return a[column]-b[column];
+    return aS - bS;
     }
     }
 return [...items.sort(comparator)]
@@ -29,16 +38,27 @@ return [...items.sort(comparator)]
 
 sortDescending(items: Array<any>, column: string, type: string){
   let comparator = function(a:any, b:any): number{
+    let aS;
+    let bS;
+    if (column === 'address') {
+      aS = a['address']['city'] + a['address']['street']
+      bS = b['address']['city'] + b['address']['street']
+      console.log(aS)
+      console.log(bS)
+    } else {
+      aS = a[column]
+      bS = b[column]
+    }
     if (type === 'string') {
-      if (a[column].toUpperCase() > b[column].toUpperCase()) {
+      if (aS.toUpperCase() > bS.toUpperCase()) {
         return -1;
-      } else if (a[column].toUpperCase() < b[column].toUpperCase()) {
+      } else if (aS.toUpperCase() < bS.toUpperCase()) {
         return 1;
       } else {
         return 0;
       }
     } else {
-    return b[column]-a[column];
+    return bS - aS;
     }
     }
 return [...items.sort(comparator)]

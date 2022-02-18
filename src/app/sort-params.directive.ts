@@ -9,7 +9,7 @@ export class SortParamsDirective {
   ageDir = true;
   genderDir = true;
   departmentDir = true;
-  addresDir = true;
+  addressDir = true;
 
   @Output() param: EventEmitter<any> = new EventEmitter()
 
@@ -40,8 +40,8 @@ export class SortParamsDirective {
     obj = {dir:this.departmentDir, col:"department", typ:"string"};
     break;
     case 'addres':
-    this.addresDir = !this.addresDir;
-    obj = {dir:this.addresDir, col:"addres", typ:"string"};
+    this.addressDir = !this.addressDir;
+    obj = {dir:this.addressDir, col:"address", typ:"string"};
     break; 
     }
 
